@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chanchiwawis Games</title>
   <meta name="description" content="Sitio oficial de Chanchiwawis Games. Desarrollador independiente de The Last Tower y The Transmuter.">
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="icon" type="image/png" href="clean_circle_emblem.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 
     body {
       background-color: var(--bg);
-      background-image: url('assets/bg_pattern.png');
+      background-image: url('bg_pattern.png');
       background-repeat: repeat;
       color: var(--text);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -714,11 +714,10 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="container header-inner">
       <div class="brand">
-        <img src="assets/logo.svg" alt="Chanchiwawis Games Logo">
+        <img src="clean_circle_emblem.png" alt="Chanchiwawis Games Logo" onerror="handleImgFallback(this)">
         <span class="brand-name">Chanchiwawis Games</span>
       </div>
 
@@ -739,9 +738,8 @@
     </div>
   </header>
 
-  <!-- FULL-WIDTH HERO BANNER -->
   <div class="hero-wrapper">
-    <img src="assets/full_hero_banner.png" alt="Chanchiwawis Games Banner" class="hero-banner-img">
+    <img src="full_hero_banner.png" alt="Chanchiwawis Games Banner" class="hero-banner-img" onerror="handleImgFallback(this)">
     <div class="hero-caption">
       <p data-i18n="hero_desc">Desarrollo independiente de videojuegos.</p>
     </div>
@@ -749,12 +747,11 @@
 
   <div class="container">
 
-    <!-- SOBRE MÍ Y CHANCHIWAWIS GAMES -->
     <section id="chanchiwawis-games">
       <h2 class="section-title" data-i18n="section_about">Chanchiwawis Games</h2>
 
       <div class="about-box">
-        <img src="assets/avatar.png" alt="Nico Avatar" class="about-avatar">
+        <img src="avatar.png" alt="Nico Avatar" class="about-avatar" onerror="handleImgFallback(this)">
         <div class="about-text">
           <h3 data-i18n="about_title">Nico — Desarrollador en solitario</h3>
           <p data-i18n="about_p1">
@@ -771,16 +768,14 @@
       </div>
     </section>
 
-    <!-- JUEGOS -->
     <section id="juegos">
       <h2 class="section-title" data-i18n="section_games">Proyectos</h2>
 
       <div class="games-list">
 
-        <!-- THE LAST TOWER -->
         <div class="game-box">
           <div class="game-top-row">
-            <img src="assets/the_last_tower_icon.png" alt="The Last Tower Icon" class="game-thumb" onclick="openSingleImage('assets/the_last_tower_icon.png', 'The Last Tower: Horde Defense', 'The Last Tower: Horde Defense', 'Icono oficial del Bastión en Google Play Store', 'Official Bastion icon on Google Play Store')" title="Clic para ampliar / Click to enlarge">
+            <img src="the_last_tower_icon.png" alt="The Last Tower Icon" class="game-thumb" onclick="openSingleImage('the_last_tower_icon.png', 'The Last Tower: Horde Defense', 'The Last Tower: Horde Defense', 'Icono oficial del Bastión en Google Play Store', 'Official Bastion icon on Google Play Store')" title="Clic para ampliar / Click to enlarge" onerror="handleImgFallback(this)">
             <div class="game-info">
               <div class="game-header">
                 <div class="game-title-group">
@@ -801,22 +796,20 @@
             </div>
           </div>
 
-          <!-- PROMOTIONAL GALLERY UNDER THE LAST TOWER (9 BILINGUAL GAMEPLAY ITEMS) -->
           <div class="game-gallery">
             <div class="gallery-header-row">
               <div class="gallery-label" data-i18n="gallery_title">Material Oficial & Galería Interactiva</div>
               <div class="gallery-hint" data-i18n="gallery_hint">Haz clic en cualquier imagen para ampliar</div>
             </div>
             <div class="gallery-grid" id="gallery-grid">
-              <!-- Rendered dynamically by JavaScript to swap ES/EN images -->
+              
             </div>
           </div>
         </div>
 
-        <!-- THE TRANSMUTER (3D GAME CARD) -->
         <div class="game-box">
           <div class="game-top-row">
-            <img src="assets/the_transmuter_card.png" alt="The Transmuter Artwork" class="game-thumb" onclick="openSingleImage('assets/the_transmuter_card.png', 'The Transmuter', 'The Transmuter', 'Arte conceptual del Castillo de los Sellos y el Reloj Cósmico', 'Concept artwork of the Castle of Sigils and the Cosmic Clock')" title="Clic para ampliar / Click to enlarge">
+            <img src="the_transmuter_card.png" alt="The Transmuter Artwork" class="game-thumb" onclick="openSingleImage('the_transmuter_card.png', 'The Transmuter', 'The Transmuter', 'Arte conceptual del Castillo de los Sellos y el Reloj Cósmico', 'Concept artwork of the Castle of Sigils and the Cosmic Clock')" title="Clic para ampliar / Click to enlarge" onerror="handleImgFallback(this)">
             <div class="game-info">
               <div class="game-header">
                 <div class="game-title-group">
@@ -842,7 +835,6 @@
       </div>
     </section>
 
-    <!-- CONTACTO (Estilo Re-Logic) -->
     <section id="contacto">
       <h2 class="section-title" data-i18n="section_contact">Contacto y Enlaces</h2>
 
@@ -869,7 +861,6 @@
 
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
       <span>&copy; 2026 Chanchiwawis Games</span>
@@ -879,7 +870,6 @@
     </div>
   </footer>
 
-  <!-- LIGHTBOX MODAL ELEMENT -->
   <div id="lightbox-modal" class="lightbox-modal" onclick="onLightboxBackdropClick(event)">
     <div class="lightbox-content">
       <button class="lightbox-close" onclick="closeLightbox()" title="Cerrar (Esc)">×</button>
@@ -974,15 +964,24 @@
       const grid = document.getElementById('gallery-grid');
       if (!grid) return;
       grid.innerHTML = GALLERY_ITEMS.map((item, idx) => {
-        const thumbSrc = `assets/promo/${item.id}_${currentLang}_thumb.jpg`;
+        const thumbSrc = `${item.id}_${currentLang}_thumb.jpg`;
         const title = currentLang === 'en' ? item.title_en : item.title_es;
         return `
           <div class="gallery-item" onclick="openLightbox(${idx})">
-            <img src="${thumbSrc}" alt="${title}">
+            <img src="${thumbSrc}" alt="${title}" onerror="handleImgFallback(this)">
             <div class="gallery-item-overlay">${title}</div>
           </div>
         `;
       }).join('');
+    }
+
+    function handleImgFallback(img) {
+      if (img.dataset.hasFallback) return;
+      img.dataset.hasFallback = 'true';
+      const file = img.src.split('/').pop();
+      if (!img.src.includes('/assets/')) {
+        img.src = 'assets/' + file;
+      }
     }
 
     function openSingleImage(src, title_es, title_en, desc_es, desc_en) {
@@ -1041,7 +1040,7 @@
 
     function updateLightboxContent() {
       const item = GALLERY_ITEMS[currentLightboxIdx];
-      const fullSrc = `assets/promo/${item.id}_${currentLang}_full.jpg`;
+      const fullSrc = `${item.id}_${currentLang}_full.jpg`;
       document.getElementById('lightbox-img').src = fullSrc;
       document.getElementById('lightbox-title').textContent = currentLang === 'en' ? item.title_en : item.title_es;
       document.getElementById('lightbox-desc').textContent = currentLang === 'en' ? item.desc_en : item.desc_es;
