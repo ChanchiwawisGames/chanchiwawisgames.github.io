@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pol&#237;tica de Privacidad | Chanchiwawis Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --card-bg: #121824;
+      --card-border: #1e293b;
+      --accent-cyan: #38bdf8;
+      --accent-gold: #f59e0b;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      overflow-y: auto;
+      background-color: var(--bg-dark);
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #0d121c 0%, #07090f 100%);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0d14; }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+    .main-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+    }
+    header {
+      text-align: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 24px;
+    }
+    .tower-emblem {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(18, 24, 36, 0.95) 100%);
+      border: 1.5px solid var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+    }
+    h1.game-title {
+      font-family: 'Cinzel Decorative', Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .doc-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    .meta-item strong {
+      color: var(--accent-cyan);
+      display: block;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .meta-item span {
+      color: var(--text-main);
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    .lang-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 0 26px;
+    }
+    .lang-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover { color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.4); }
+    .lang-btn[aria-selected="true"] {
+      background: rgba(56, 189, 248, 0.15);
+      color: #ffffff;
+      border-color: var(--accent-cyan);
+    }
+    .lang-pane { display: none; animation: fadeIn 0.25s ease; }
+    .lang-pane.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    .notice-card {
+      background: rgba(56, 189, 248, 0.05);
+      border-left: 4px solid var(--accent-cyan);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+    h2.section-title {
+      font-family: 'Cinzel Decorative', Georgia, serif;
+      font-size: 1.22rem;
+      color: var(--accent-gold);
+      margin-top: 36px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    p { margin-bottom: 14px; color: #cbd5e1; font-size: 0.95rem; }
+    ul { margin-left: 22px; margin-bottom: 18px; }
+    li { margin-bottom: 8px; color: #cbd5e1; font-size: 0.93rem; }
+    li strong { color: #ffffff; }
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0 24px;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+    .service-table {
+      width: 100%;
+      min-width: 540px;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      font-size: 0.88rem;
+    }
+    .service-table th, .service-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .service-table th {
+      background: #161e2e;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .service-table tr:last-child td { border-bottom: none; }
+    a { color: var(--accent-cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 36px 0 20px;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-subtle);
+      font-size: 0.85rem;
+      margin-top: 48px;
+    }
+    :lang(ja) { font-family: 'Noto Sans JP', 'Inter', sans-serif; }
+    :lang(zh) { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+
+    <header>
+      <div class="tower-emblem" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 21h16"/>
+          <path d="M5 21V7l3-3 4 3 4-3 3 3v14"/>
+          <path d="M9 10h6"/>
+          <path d="M9 14h6"/>
+          <path d="M10 21v-3a2 2 0 0 1 4 0v3"/>
+        </svg>
+      </div>
+
+      <h1 class="game-title">Chanchiwawis Games</h1>
+      <div class="doc-subtitle">Pol&#237;tica de Privacidad Oficial &#8226; Privacy Policy</div>
+
+      <div class="meta-box">
+        <div class="meta-item">
+          <strong>Aplicaci&#243;n / Application ID</strong>
+          <span>com.chanchiwawis.thelasttower</span>
+        </div>
+        <div class="meta-item">
+          <strong>Desarrollador / Developer</strong>
+          <span>Chanchiwawis Games</span>
+        </div>
+        <div class="meta-item">
+          <strong>Contacto / Contact Email</strong>
+          <span>chanchibussines@gmail.com</span>
+        </div>
+        <div class="meta-item">
+          <strong>&#218;ltima actualizaci&#243;n / Effective Date</strong>
+          <span>5 de noviembre de 2026 / November 5, 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="lang-nav" role="tablist" aria-label="Seleccionar idioma / Select language">
+      <button class="lang-btn" role="tab" aria-selected="true" id="btn-es" onclick="switchLang('es')">Espa&#241;ol</button>
+      <button class="lang-btn" role="tab" aria-selected="false" id="btn-en" onclick="switchLang('en')">English</button>
+      <button class="lang-btn" role="tab" aria-selected="false" id="btn-pt" onclick="switchLang('pt')">Portugu&#234;s</button>
+      <button class="lang-btn" role="tab" aria-selected="false" id="btn-zh" onclick="switchLang('zh')">&#20013;&#25991;</button>
+      <button class="lang-btn" role="tab" aria-selected="false" id="btn-ja" onclick="switchLang('ja')">&#26085;&#26412;&#35486;</button>
+    </nav>
+
+    <!-- 1. ESPA&#209;OL (ES) -->
+    <article id="pane-es" class="lang-pane active" lang="es" role="tabpanel" aria-labelledby="btn-es">
+      <div class="notice-card">
+        Esta Pol&#237;tica de Privacidad describe de manera transparente c&#243;mo se gestiona la informaci&#243;n en el videojuego m&#243;vil <strong>The Last Tower: Horde Defense</strong>, desarrollado por <strong>Chanchiwawi Studios</strong>. Al descargar o utilizar este juego, aceptas las pr&#225;cticas descritas en este documento.
+      </div>
+
+      <h2 class="section-title">1. Informaci&#243;n que se Recopila</h2>
+      <p><strong>No recopilamos directamente informaci&#243;n de identificaci&#243;n personal</strong> (como nombres reales, direcciones f&#237;sicas, n&#250;meros de tel&#233;fono, libreta de contactos, acceso a la c&#225;mara o micr&#243;fono, ni ubicaci&#243;n geogr&#225;fica precisa por GPS).</p>
+      <p>La aplicaci&#243;n interact&#250;a con datos t&#233;cnicos y servicios necesarios para el funcionamiento del juego individual, social y multijugador:</p>
+      <ul>
+        <li><strong>Almacenamiento Local del Dispositivo:</strong> Las preferencias (idioma, volumen de sonido), progresos de oleadas, estad&#237;sticas de combate, mejoras desbloqueadas y monedas virtuales se almacenan de manera local en el propio dispositivo.</li>
+        <li><strong>Perfiles P&#250;blicos de Juego y Sincronizaci&#243;n Social (Google Cloud Firestore):</strong> Para permitir la visualizaci&#243;n y comparaci&#243;n de progreso entre jugadores, se sincroniza en la nube un perfil p&#250;blico compuesto exclusivamente por datos del juego: apodo visible, avatar, marco cosm&#233;tico, arsenal desbloqueado y r&#233;cord de oleada alcanzada.</li>
+        <li><strong>Multijugador, Salas de Espera y Chat en Vivo:</strong> En las salas multijugador (cooperativo y competitivo), los jugadores pueden interactuar mediante un chat de texto en tiempo real. Los mensajes se transmiten entre los participantes de la sala para la coordinaci&#243;n de la partida. La aplicaci&#243;n cuenta con un filtro automatizado de lenguaje inapropiado y una funci&#243;n para <strong>Bloquear Jugadores</strong>, impidiendo recibir mensajes de usuarios bloqueados.</li>
+        <li><strong>Conectividad Multijugador (LAN / P2P y Epic Online Services):</strong> Para establecer partidas entre dispositivos en la misma red local (LAN) o a trav&#233;s de internet (P2P), se gestionan identificadores de sala y direcciones IP t&#233;cnicas necesarias para enrutar el tr&#225;fico de red de la sesi&#243;n.</li>
+        <li><strong>Google Play Games Services:</strong> Si inicias sesi&#243;n, Google procesa un identificador de jugador an&#243;nimo (Player ID) para habilitar el guardado en la nube (Cloud Save), tablas de clasificaci&#243;n (Leaderboards) y logros oficiales (Achievements).</li>
+        <li><strong>Publicidad (Google AdMob):</strong> Para mantener el juego gratuito, AdMob procesa identificadores de dispositivo no sensibles (como el Google Advertising ID - GAID), direcci&#243;n IP y m&#233;tricas de interacci&#243;n para entrega de publicidad y prevenci&#243;n de fraude.</li>
+        <li><strong>Compras Integradas (Google Play Billing):</strong> Las transacciones de compra (como eliminar anuncios) son procesadas directamente por Google Play Store. Nosotros no recopilamos ni tenemos acceso a datos bancarios ni tarjetas de cr&#233;dito.</li>
+      </ul>
+
+      <h2 class="section-title">2. Finalidad del Tratamiento de Datos</h2>
+      <p>Los datos t&#233;cnicos procesados se emplean exclusivamente para:</p>
+      <ul>
+        <li>Permitir la jugabilidad individual, cooperativa y competitiva.</li>
+        <li>Sincronizar perfiles p&#250;blicos de juego y permitir comparar avances entre jugadores.</li>
+        <li>Facilitar la comunicaci&#243;n en tiempo real en salas multijugador con herramientas de moderaci&#243;n y bloqueo.</li>
+        <li>Sincronizar el avance en la nube a trav&#233;s de Google Cloud Save.</li>
+        <li>Gestionar las clasificaciones p&#250;blicas globales y logros de Google Play.</li>
+        <li>Mostrar anuncios publicitarios con un ritmo equilibrado.</li>
+        <li>Verificar compras dentro de la aplicaci&#243;n y desbloquear contenidos adquiridos.</li>
+      </ul>
+
+      <h2 class="section-title">3. Proveedores de Terceros y Transferencias</h2>
+      <p>La aplicaci&#243;n utiliza bibliotecas y servicios de terceros que operan bajo sus propios t&#233;rminos y pol&#237;ticas de privacidad:</p>
+      <div class="table-responsive">
+        <table class="service-table">
+          <thead>
+            <tr><th>Proveedor</th><th>Funci&#243;n</th><th>T&#233;rminos y Pol&#237;ticas Oficiales</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Google Cloud Firestore</strong></td><td>Perfiles P&#250;blicos y Salas Multijugador</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacidad de Google Cloud</a></td></tr>
+            <tr><td><strong>Epic Online Services (EOS)</strong></td><td>Se&#241;alizaci&#243;n y Conectividad Multijugador P2P</td><td><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Privacidad de Epic Games</a></td></tr>
+            <tr><td><strong>Google Play Services</strong></td><td>Leaderboards, Guardado en la Nube y Logros</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Pol&#237;tica de Privacidad de Google</a></td></tr>
+            <tr><td><strong>Google AdMob</strong></td><td>Anuncios Recompensados e Intersticiales</td><td><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Tecnolog&#237;as de Publicidad de Google</a></td></tr>
+            <tr><td><strong>Google Play Billing</strong></td><td>Procesamiento Seguro de Compras</td><td><a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Condiciones de Servicio de Google Play</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title">4. Seguridad en el Chat y Bloqueo de Jugadores</h2>
+      <p>Para asegurar un entorno de juego respetuoso en las partidas multijugador:</p>
+      <ul>
+        <li><strong>Filtro de Contenido:</strong> El chat implementa un filtro autom&#225;tico contra lenguaje ofensivo y enlaces web externos no autorizados.</li>
+        <li><strong>Funci&#243;n de Bloqueo:</strong> Cualquier usuario puede bloquear a otro jugador desde las opciones sociales de la sala o perfil (<em>Bloquear Jugador</em>). Al bloquearlo, el juego silencia inmediatamente sus mensajes y bloquea solicitudes futuras.</li>
+      </ul>
+
+      <h2 class="section-title">5. Consentimiento y Control de Publicidad (RGPD / EEE y CCPA)</h2>
+      <p>Para usuarios en el Espacio Econ&#243;mico Europeo (EEE) y Reino Unido, se solicita el consentimiento correspondiente mediante la plataforma de consentimiento de Google (UMP). Cualquier usuario puede revocar o ajustar la personalizaci&#243;n de anuncios en su dispositivo Android (<em>Ajustes &gt; Google &gt; Anuncios</em>) o en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+
+      <h2 class="section-title">6. Declaraci&#243;n de No Venta de Datos</h2>
+      <p><strong>No vendemos, alquilamos ni comercializamos datos personales, mensajes ni identificadores a terceros</strong> bajo ning&#250;n concepto, en cumplimiento con el RGPD y la Ley de Privacidad del Consumidor de California (CCPA).</p>
+
+      <h2 class="section-title">7. Seguridad y Cifrado de Datos</h2>
+      <p>Toda comunicaci&#243;n entre el videojuego y los servicios en la nube se transmite mediante protocolos de cifrado est&#225;ndar de la industria (<strong>HTTPS / TLS</strong>), resguardando la integridad de los datos en tr&#225;nsito.</p>
+
+      <h2 class="section-title">8. Plazo de Conservaci&#243;n y Eliminaci&#243;n de Datos</h2>
+      <ul>
+        <li><strong>Datos Locales:</strong> Permanecen en el dispositivo hasta que el usuario borre los datos de la app desde ajustes de Android o desinstale el juego.</li>
+        <li><strong>Perfiles y Datos en la Nube:</strong> Se conservan mientras el usuario mantenga activo su perfil de juego. Puedes solicitar la supresi&#243;n de tu perfil p&#250;blico o datos de guardado escribi&#233;ndonos a nuestro correo de contacto o borrando tus datos de Play Games.</li>
+        <li><strong>Mensajes de Chat:</strong> Los mensajes de chat en sala se transmiten en tiempo real durante la sesi&#243;n y no se almacenan como historiales permanentes.</li>
+      </ul>
+
+      <h2 class="section-title">9. Derechos del Usuario</h2>
+      <p>Conforme a la legislaci&#243;n vigente (RGPD, CCPA y normativas aplicables), tienes derecho a solicitar el acceso, rectificaci&#243;n, supresi&#243;n/eliminaci&#243;n y limitaci&#243;n del tratamiento de tus datos de juego contact&#225;ndonos por correo electr&#243;nico.</p>
+
+      <h2 class="section-title">10. Privacidad de Menores (COPPA / RGPD)</h2>
+      <p>El videojuego est&#225; dirigido a una audiencia general a partir de los 13 a&#241;os de edad. La aplicaci&#243;n no est&#225; destinada a menores de 13 a&#241;os y no recopilamos a sabiendas informaci&#243;n de menores de dicha edad.</p>
+
+      <h2 class="section-title">11. Modificaciones y Contacto</h2>
+      <p>Cualquier modificaci&#243;n a esta pol&#237;tica entrar&#225; en vigor inmediatamente tras su publicaci&#243;n en esta URL con la fecha actualizada. Para consultas o solicitudes de datos:</p>
+      <p>
+        <strong>Desarrollador:</strong> Chanchiwawi Studios<br>
+        <strong>Correo de Soporte Oficial:</strong> <a href="mailto:chanchibussines@gmail.com">chanchibussines@gmail.com</a>
+      </p>
+    </article>
+
+    <!-- 2. ENGLISH (EN) -->
+    <article id="pane-en" class="lang-pane" lang="en" role="tabpanel" aria-labelledby="btn-en">
+      <div class="notice-card">
+        This Privacy Policy outlines how data is handled in the mobile game <strong>The Last Tower: Horde Defense</strong>, developed by <strong>Chanchiwawi Studios</strong>. By downloading or playing the game, you accept the practices outlined below.
+      </div>
+
+      <h2 class="section-title">1. Information We Collect</h2>
+      <p><strong>We do NOT directly collect or solicit Personally Identifiable Information (PII)</strong> (such as real names, postal addresses, phone numbers, contact lists, microphone audio, camera feeds, or precise GPS location).</p>
+      <p>The game interacts with technical data necessary for single-player, social, and multiplayer features:</p>
+      <ul>
+        <li><strong>Local Device Storage:</strong> Preferences (language, sound), wave progression, combat stats, unlocked skills, and virtual currencies are stored locally on your device.</li>
+        <li><strong>Public Game Profiles &amp; Social Sync (Google Cloud Firestore):</strong> To allow players to compare records and view each other's progress, a public game profile containing solely in-game data (chosen display name, avatar, cosmetic frame, loadout, and highest wave reached) is synchronized to the cloud.</li>
+        <li><strong>Multiplayer, Lobbies &amp; Live Chat:</strong> In multiplayer lobbies (co-op and PvP), players can communicate using a real-time text chat for match coordination. The application features an automated inappropriate language filter and an in-game <strong>Block Player</strong> feature to mute and prevent messages from blocked users.</li>
+        <li><strong>Multiplayer Connectivity (LAN / P2P &amp; Epic Online Services):</strong> To connect matches across devices on local network (LAN) or via internet (P2P), technical room identifiers and session IP addresses are processed to route network traffic.</li>
+        <li><strong>Google Play Games Services:</strong> Voluntarily signing in allows Google to process an anonymous Player ID for Cloud Saves across devices, public Leaderboards, and Achievements.</li>
+        <li><strong>Advertising (Google AdMob):</strong> To keep the game free to play, AdMob processes non-sensitive device identifiers (such as Google Advertising ID - GAID), IP address, and ad telemetry for ad delivery and fraud prevention.</li>
+        <li><strong>In-App Purchases (Google Play Billing):</strong> Purchase transactions (such as ad removal) are processed directly by Google Play Store. We never receive or store financial data.</li>
+      </ul>
+
+      <h2 class="section-title">2. Purpose of Data Processing</h2>
+      <p>Technical data is processed strictly to deliver single-player and multiplayer gameplay, sync public profiles, enable in-game lobby communications with moderation and user-blocking tools, maintain cloud saves and leaderboards, and process legitimate in-app transactions.</p>
+
+      <h2 class="section-title">3. Third-Party Providers &amp; Policies</h2>
+      <div class="table-responsive">
+        <table class="service-table">
+          <thead>
+            <tr><th>Provider</th><th>Function</th><th>Official Policies</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Google Cloud Firestore</strong></td><td>Public Game Profiles &amp; Match Rooms</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Cloud Privacy</a></td></tr>
+            <tr><td><strong>Epic Online Services (EOS)</strong></td><td>P2P Multiplayer Signaling &amp; Matchmaking</td><td><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Epic Games Privacy</a></td></tr>
+            <tr><td><strong>Google Play Services</strong></td><td>Leaderboards, Cloud Save &amp; Achievements</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></td></tr>
+            <tr><td><strong>Google AdMob</strong></td><td>Rewarded &amp; Interstitial Ads</td><td><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Ad Technologies</a></td></tr>
+            <tr><td><strong>Google Play Billing</strong></td><td>In-App Purchase Processing</td><td><a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title">4. Chat Safety &amp; Player Blocking</h2>
+      <p>To foster a respectful gaming environment:</p>
+      <ul>
+        <li><strong>Content Filtering:</strong> Lobby chat includes automated filtering against offensive language and unauthorized links.</li>
+        <li><strong>Player Blocking:</strong> Players can block any user via room or profile options (<em>Block Player</em>), immediately muting their messages and blocking future requests.</li>
+      </ul>
+
+      <h2 class="section-title">5. Consent &amp; Ad Controls (GDPR / EEA &amp; CCPA)</h2>
+      <p>For players in the EEA and UK, consent for personalized advertising is gathered via Google's UMP platform. You can opt out or reset your advertising ID in Android (<em>Settings &gt; Google &gt; Ads</em>) or via <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+
+      <h2 class="section-title">6. No-Sale Statement</h2>
+      <p><strong>We do NOT sell, rent, or trade user data, messages, or identifiers to third parties</strong> under any circumstance, complying with GDPR and CCPA.</p>
+
+      <h2 class="section-title">7. Data Security &amp; Encryption</h2>
+      <p>All network communications between the game and cloud services are encrypted over industry-standard <strong>HTTPS / TLS</strong> channels.</p>
+
+      <h2 class="section-title">8. Data Retention &amp; Deletion</h2>
+      <p>Local data is stored until deleted or uninstalled. Cloud profiles remain while active; you can request profile or save deletion by emailing our support address. Chat messages are transmitted in real time and are not stored permanently.</p>
+
+      <h2 class="section-title">9. User Rights</h2>
+      <p>Under applicable privacy laws, you have the right to access, rectify, restrict, or delete your technical gameplay data by emailing us.</p>
+
+      <h2 class="section-title">10. Children's Privacy</h2>
+      <p>The game is intended for audiences aged 13 and above. We do not knowingly collect personal data from children under 13.</p>
+
+      <h2 class="section-title">11. Changes &amp; Contact</h2>
+      <p>Updates will be posted here with a revised date. For questions or data requests:</p>
+      <p>
+        <strong>Developer:</strong> Chanchiwawi Studios<br>
+        <strong>Support Email:</strong> <a href="mailto:chanchibussines@gmail.com">chanchibussines@gmail.com</a>
+      </p>
+    </article>
+
+    <!-- 3. PORTUGU&#202;S (PT) -->
+    <article id="pane-pt" class="lang-pane" lang="pt" role="tabpanel" aria-labelledby="btn-pt">
+      <div class="notice-card">
+        Esta Pol&#237;tica de Privacidade descreve como as informa&#231;&#245;es s&#227;o tratadas no jogo <strong>The Last Tower: Horde Defense</strong>, desenvolvido pela <strong>Chanchiwawi Studios</strong>.
+      </div>
+
+      <h2 class="section-title">1. Informa&#231;&#245;es que Coletamos</h2>
+      <p><strong>N&#227;o coletamos diretamente informa&#231;&#245;es pessoais identific&#225;veis (PII)</strong>. O jogo utiliza apenas dados t&#233;cnicos e servi&#231;os necess&#225;rios para partidas solo, sociais e multijogador:</p>
+      <ul>
+        <li><strong>Armazenamento Local:</strong> Dados de jogo, progresso e moedas s&#227;o salvos localmente no dispositivo.</li>
+        <li><strong>Perfis P&#250;blicos e Sincroniza&#231;&#227;o Social (Google Cloud Firestore):</strong> Para que os jogadores comparem recordes e visualizem avan&#231;os m&#250;tuos, um perfil p&#250;blico de jogo (nome exibido, avatar, moldura cosm&#233;tica e maior onda alcan&#231;ada) &#233; sincronizado na nuvem.</li>
+        <li><strong>Multijogador e Chat em Lobbies:</strong> Nas salas multijogador, os jogadores podem conversar por chat de texto em tempo real. O jogo possui filtro autom&#225;tico contra linguagem ofensiva e a op&#231;&#227;o de <strong>Bloquear Jogador</strong> para silenciar usu&#225;rios indesejados.</li>
+        <li><strong>Conectividade Multijugador (LAN / P2P e EOS):</strong> Partidas em rede local (LAN) ou via internet utilizam conex&#245;es ponto a ponto com identificadores de sess&#227;o t&#233;cnicos.</li>
+        <li><strong>Google Play Services:</strong> Salva progresso na nuvem (Cloud Save) e gerencia conquistas e placares globais.</li>
+        <li><strong>Google AdMob e Google Play Billing:</strong> Exibi&#231;&#227;o segura de an&#250;ncios e processamento de compras sem acesso a dados banc&#225;rios.</li>
+      </ul>
+
+      <h2 class="section-title">2. Finalidade do Tratamento</h2>
+      <p>Os dados destinam-se a garantir a jogabilidade individual e multijugador, sincronizar perfis e recordes, moderar comunica&#231;&#245;es com bloqueio de usu&#225;rios e validar compras.</p>
+
+      <h2 class="section-title">3. Servi&#231;os de Terceiros</h2>
+      <div class="table-responsive">
+        <table class="service-table">
+          <thead><tr><th>Provedor</th><th>Fun&#231;&#227;o</th><th>Termos</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Google Cloud Firestore</strong></td><td>Perfis P&#250;blicos e Salas</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacidade Google Cloud</a></td></tr>
+            <tr><td><strong>Epic Online Services</strong></td><td>Conectividade Multijugador P2P</td><td><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Privacidade Epic Games</a></td></tr>
+            <tr><td><strong>Google Play Services &amp; AdMob</strong></td><td>Servi&#231;os e Publicidade</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Pol&#237;ticas Google</a></td></tr>
+            <tr><td><strong>Google Play Billing</strong></td><td>Processamento de Compras</td><td><a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Termos do Google Play</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title">4. Seguran&#231;a no Chat e Bloqueio</h2>
+      <p>O chat possui filtro contra termos ofensivos e os jogadores contam com a op&#231;&#227;o <em>Bloquear Jogador</em> para silenciar imediatamente usu&#225;rios indesejados.</p>
+
+      <h2 class="section-title">5. Consentimento e Controle de An&#250;ncios</h2>
+      <p>Usu&#225;rios podem desativar an&#250;ncios personalizados nas configura&#231;&#245;es do Android ou pelo link <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+
+      <h2 class="section-title">6. N&#227;o Comercializa&#231;&#227;o de Dados</h2>
+      <p><strong>N&#227;o vendemos dados de usu&#225;rios, mensagens ou identificadores a terceiros.</strong></p>
+
+      <h2 class="section-title">7. Seguran&#231;a, Reten&#231;&#227;o e Direitos</h2>
+      <p>Todas as comunica&#231;&#245;es utilizam criptografia <strong>HTTPS / TLS</strong>. Mensagens de chat n&#227;o s&#227;o arquivadas permanentemente. Voc&#234; pode solicitar a exclus&#227;o de seus dados ou exercer seus direitos por e-mail.</p>
+
+      <h2 class="section-title">8. Menores e Contato</h2>
+      <p>O jogo destina-se a maiores de 13 anos. Para suporte ou privacidade: <a href="mailto:chanchibussines@gmail.com">chanchibussines@gmail.com</a>.</p>
+    </article>
+
+    <!-- 4. CHINESE (ZH - &#31616;&#20307;&#20013;&#25991;) -->
+    <article id="pane-zh" class="lang-pane" lang="zh" role="tabpanel" aria-labelledby="btn-zh">
+      <div class="notice-card">
+        &#26412;&#38544;&#31169;&#25919;&#31574;&#35828;&#26126;&#20102; <strong>Chanchiwawi Studios</strong> &#24320;&#21457;&#30340;&#31227;&#21160;&#28216;&#25103; <strong>The Last Tower: Horde Defense</strong> &#22914;&#20309;&#22788;&#29702;&#21333;&#20154;&#19982;&#32852;&#26426;&#21151;&#33021;&#19979;&#30340;&#25216;&#26415;&#25968;&#25454;&#12290;
+      </div>
+
+      <h2 class="section-title">1. &#25105;&#20204;&#25910;&#38598;&#30340;&#20449;&#24687;</h2>
+      <p><strong>&#25105;&#20204;&#19981;&#20250;&#30452;&#25509;&#25910;&#38598;&#20219;&#20309;&#20010;&#20154;&#36523;&#20221;&#20449;&#24687;&#65288;PII&#65289;&#12290;</strong> &#28216;&#25103;&#20165;&#19982;&#20445;&#38556;&#21333;&#20154;&#12289;&#31038;&#20132;&#23637;&#31034;&#21450;&#32852;&#26426;&#23545;&#25112;&#25152;&#38656;&#30340;&#25216;&#26415;&#25968;&#25454;&#20132;&#20114;&#65306;</p>
+      <ul>
+        <li><strong>&#26412;&#22320;&#23384;&#20648;&#65306;</strong> &#35821;&#35328;&#12289;&#38899;&#37327;&#12289;&#21333;&#26426;&#36890;&#20851;&#19982;&#36164;&#28304;&#20165;&#20445;&#23384;&#22312;&#26412;&#22320;&#35774;&#22791;&#20013;&#12290;</li>
+        <li><strong>&#20844;&#24320;&#28216;&#25103;&#26723;&#26696;&#19982;&#31038;&#20132;&#21516;&#27493;&#65288;Google Cloud Firestore&#65289;&#65306;</strong> &#20026;&#20415;&#20110;&#29609;&#23478;&#26597;&#30475;&#19982;&#23545;&#27604;&#24444;&#27492;&#36827;&#24230;&#65292;&#31995;&#32479;&#22312;&#20113;&#31471;&#21516;&#27493;&#20165;&#21253;&#21547;&#28216;&#25103;&#25968;&#25454;&#30340;&#20844;&#24320;&#26723;&#26696;&#65288;&#20844;&#24320;&#26165;&#31216;&#12289;&#22836;&#20687;&#12289;&#35013;&#39280;&#26694;&#21450;&#26368;&#39640;&#36890;&#20851;&#35760;&#24405;&#65289;&#12290;</li>
+        <li><strong>&#32852;&#26426;&#22823;&#21381;&#19982;&#23454;&#26102;&#25991;&#23383;&#32842;&#22825;&#65306;</strong> &#22312;&#32852;&#26426;&#22823;&#21381;&#20013;&#65292;&#29609;&#23478;&#21487;&#20351;&#29992;&#23454;&#26102;&#25991;&#23383;&#32842;&#22825;&#36827;&#34892;&#25112;&#26415;&#27807;&#36890;&#12290;&#28216;&#25103;&#20869;&#32622;&#36829;&#35268;&#35789;&#33258;&#21160;&#36807;&#28388;&#31639;&#27861;&#65292;&#24182;&#25552;&#20379;<strong>&#23631;&#34109;&#29609;&#23478;&#65288;Block Player&#65289;</strong>&#21151;&#33021;&#65292;&#29609;&#23478;&#21487;&#33258;&#20027;&#23631;&#34109;&#36829;&#35268;&#29992;&#25143;&#20197;&#25298;&#25910;&#20854;&#20449;&#24687;&#12290;</li>
+        <li><strong>&#32852;&#26426;&#32593;&#32476;&#65288;&#23616;&#22495;&#32593; LAN / P2P &#21450; Epic Online Services&#65289;&#65306;</strong> &#36328;&#35774;&#22791;&#65288;PC&#19982;&#25163;&#26426;&#65289;&#23545;&#25112;&#37319;&#29992;&#23616;&#22495;&#32593;&#25110; P2P &#28857;&#23545;&#28857;&#32593;&#32476;&#20256;&#36755;&#24517;&#35201;&#30340;&#20250;&#35805;&#36830;&#25509;&#26631;&#35782;&#31526;&#12290;</li>
+        <li><strong>Google Play &#28216;&#25103;&#26381;&#21153;&#19982; AdMob &#24191;&#21578;&#65306;</strong> &#36127;&#36131;&#20113;&#23384;&#26723;&#12289;&#20840;&#29699;&#25490;&#34892;&#27036;&#19982;&#38750;&#25935;&#24863;&#24191;&#21578;&#26631;&#35782;&#31526;&#65288;GAID&#65289;&#25237;&#25918;&#12290;</li>
+        <li><strong>&#24212;&#29992;&#20869;&#36141;&#20080;&#65288;Google Play Billing&#65289;&#65306;</strong> &#30001; Google Play &#23448;&#26041;&#22788;&#29702;&#65292;&#32477;&#19981;&#25509;&#35302;&#38134;&#34892;&#20449;&#24687;&#12290;</li>
+      </ul>
+
+      <h2 class="section-title">2. &#31532;&#19977;&#26041;&#26381;&#21153;&#19982;&#25919;&#31574;</h2>
+      <div class="table-responsive">
+        <table class="service-table">
+          <thead><tr><th>&#25552;&#20379;&#21830;</th><th>&#21151;&#33021;&#26381;&#21153;</th><th>&#26465;&#27454;&#25919;&#31574;</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Google Cloud Firestore</strong></td><td>&#20844;&#24320;&#26723;&#26696;&#19982;&#32852;&#26426;&#22823;&#21381;&#31649;&#29702;</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Cloud &#38544;&#31169;&#25919;&#31574;</a></td></tr>
+            <tr><td><strong>Epic Online Services</strong></td><td>P2P &#32852;&#26426;&#33410;&#28857;&#20449;&#20196;</td><td><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Epic Games &#38544;&#31169;&#26465;&#27454;</a></td></tr>
+            <tr><td><strong>Google Play Services &amp; AdMob</strong></td><td>&#28216;&#25103;&#26381;&#21153;&#19982;&#24191;&#21578;</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google &#38544;&#31169;&#26435;&#25919;&#31574;</a></td></tr>
+            <tr><td><strong>Google Play Billing</strong></td><td>&#24212;&#29992;&#20869;&#20132;&#26131;&#32467;&#31639;&#20195;&#34892;</td><td><a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play &#26465;&#27454;</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title">3. &#32842;&#22825;&#23433;&#20840;&#19982;&#29609;&#23478;&#23631;&#34109;</h2>
+      <p>&#22823;&#21381;&#25991;&#23383;&#32842;&#22825;&#35774;&#26377;&#19981;&#24403;&#35328;&#35770;&#33258;&#21160;&#36807;&#28388;&#26426;&#21046;&#65292;&#29609;&#23478;&#21487;&#38543;&#26102;&#28857;&#20987;&#8220;&#23631;&#34109;&#29609;&#23478;&#8221;&#33258;&#20027;&#38459;&#26029;&#19981;&#33391;&#28040;&#24687;&#19982;&#39578;&#25200;&#12290;</p>
+
+      <h2 class="section-title">4. &#19981;&#20986;&#21806;&#25968;&#25454;&#22768;&#26126;&#19982;&#23433;&#20840;&#21152;&#23494;</h2>
+      <p><strong>&#25105;&#20204;&#32477;&#19981;&#20986;&#21806;&#20219;&#20309;&#29992;&#25143;&#25968;&#25454;&#12289;&#32842;&#22825;&#20449;&#24687;&#25110;&#35774;&#22791;&#26631;&#35782;&#31526;&#12290;</strong> &#20840;&#31243;&#37319;&#29992; <strong>HTTPS / TLS</strong> &#21327;&#35758;&#21152;&#23494;&#20256;&#36755;&#12290;&#22823;&#21381;&#32842;&#22825;&#28040;&#24687;&#20026;&#23454;&#26102;&#20256;&#36755;&#65292;&#19981;&#20316;&#25345;&#20037;&#24402;&#26723;&#12290;</p>
+
+      <h2 class="section-title">5. &#29992;&#25143;&#26435;&#21033;&#19982;&#23458;&#26381;&#37038;&#31665;</h2>
+      <p>&#26412;&#28216;&#25103;&#38754;&#21521; 13 &#23681;&#21450;&#20197;&#19978;&#21463;&#20247;&#12290;&#30003;&#35831;&#21024;&#38500;&#25968;&#25454;&#25110;&#38544;&#31169;&#21672;&#35810;&#35831;&#32852;&#31995;&#65306;<a href="mailto:chanchibussines@gmail.com">chanchibussines@gmail.com</a>&#12290;</p>
+    </article>
+
+    <!-- 5. JAPANESE (JA - &#26085;&#26412;&#35486;) -->
+    <article id="pane-ja" class="lang-pane" lang="ja" role="tabpanel" aria-labelledby="btn-ja">
+      <div class="notice-card">
+        &#26412;&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;&#12509;&#12522;&#12471;&#12540;&#12399;&#12289;<strong>Chanchiwawi Studios</strong> &#12364;&#37197;&#20449;&#12377;&#12427; <strong>The Last Tower: Horde Defense</strong> &#12395;&#12362;&#12369;&#12427;&#12471;&#12531;&#12464;&#12523;&#12503;&#12524;&#12452;&#12539;&#12510;&#12523;&#12481;&#12503;&#12524;&#12452;&#38306;&#36899;&#12487;&#12540;&#12479;&#12398;&#21462;&#12426;&#25201;&#12356;&#12434;&#23450;&#12417;&#12383;&#12418;&#12398;&#12391;&#12377;&#12290;
+      </div>
+
+      <h2 class="section-title">1. &#21454;&#38598;&#12377;&#12427;&#24773;&#22577;</h2>
+      <p><strong>&#20491;&#20154;&#12434;&#29305;&#23450;&#21487;&#33021;&#12394;&#24773;&#22577;&#65288;PII&#65289;&#12434;&#30452;&#25509;&#21454;&#38598;&#12377;&#12427;&#12371;&#12392;&#12399;&#12354;&#12426;&#12414;&#12379;&#12435;&#12290;</strong> &#27491;&#24120;&#12394;&#12503;&#12524;&#12452;&#12392;&#12510;&#12523;&#12481;&#12503;&#12524;&#12452;&#27231;&#33021;&#12398;&#25552;&#20379;&#12395;&#24517;&#35201;&#12394;&#20197;&#19979;&#12398;&#25216;&#34899;&#12487;&#12540;&#12479;&#12434;&#25201;&#12356;&#12414;&#12377;&#65306;</p>
+      <ul>
+        <li><strong>&#12525;&#12540;&#12459;&#12523;&#12473;&#12488;&#12524;&#12540;&#12472;&#65306;</strong> &#35373;&#23450;&#12420;&#21336;&#29420;&#12503;&#12524;&#12452;&#12398;&#36914;&#34892;&#29366;&#27841;&#12399;&#31471;&#26411;&#20869;&#12395;&#23433;&#20840;&#12395;&#20445;&#23384;&#12373;&#12428;&#12414;&#12377;&#12290;</li>
+        <li><strong>&#20844;&#38283;&#12466;&#12540;&#12512;&#12503;&#12525;&#12501;&#12451;&#12540;&#12523;&#21516;&#26399;&#65288;Google Cloud Firestore&#65289;&#65306;</strong> &#12503;&#12524;&#12452;&#12516;&#12540;&#38291;&#12391;&#12362;&#20114;&#12356;&#12398;&#36914;&#25431;&#12434;&#30906;&#35469;&#12539;&#27604;&#36611;&#12391;&#12365;&#12427;&#12424;&#12358;&#12289;&#12466;&#12540;&#12512;&#20869;&#12398;&#20844;&#38283;&#24773;&#22577;&#65288;&#34920;&#31034;&#21517;&#12289;&#12450;&#12496;&#12479;&#12540;&#12289;&#35013;&#39166;&#26528;&#12289;&#26368;&#39640;&#21040;&#36948;&#12454;&#12455;&#12540;&#12502;&#25968;&#65289;&#12398;&#12415;&#12434;&#12463;&#12521;&#12454;&#12489;&#19978;&#12391;&#21516;&#26399;&#12375;&#12414;&#12377;&#12290;</li>
+        <li><strong>&#12510;&#12523;&#12481;&#12503;&#12524;&#12452;&#24453;&#27231;&#23460;&#12392;&#12486;&#12461;&#12473;&#12488;&#12481;&#12515;&#12483;&#12488;&#65306;</strong> &#24453;&#27231;&#12525;&#12499;&#12540;&#12391;&#12399;&#20316;&#25126;&#20253;&#36948;&#12398;&#12383;&#12417;&#12398;&#12522;&#12450;&#12523;&#12479;&#12452;&#12512;&#12486;&#12461;&#12473;&#12488;&#12481;&#12515;&#12483;&#12488;&#12434;&#21033;&#29992;&#12391;&#12365;&#12414;&#12377;&#12290;&#19981;&#36969;&#20999;&#35486;&#21477;&#12398;&#33258;&#21205;&#12501;&#12451;&#12523;&#12479;&#12522;&#12531;&#12464;&#27231;&#33021;&#12362;&#12424;&#12403;&#36855;&#24785;&#12518;&#12540;&#12470;&#12540;&#12434;&#36974;&#26029;&#12391;&#12365;&#12427;<strong>&#12503;&#12524;&#12452;&#12516;&#12540;&#12502;&#12525;&#12483;&#12463;&#27231;&#33021;</strong>&#12434;&#20633;&#12360;&#12390;&#12356;&#12414;&#12377;&#12290;</li>
+        <li><strong>&#12510;&#12523;&#12481;&#12503;&#12524;&#12452;&#25509;&#32154;&#65288;LAN / P2P &#12362;&#12424;&#12403; Epic Online Services&#65289;&#65306;</strong> &#12525;&#12540;&#12459;&#12523;&#12493;&#12483;&#12488;&#12527;&#12540;&#12463;&#65288;LAN&#65289;&#12420;&#12452;&#12531;&#12479;&#12540;&#12493;&#12483;&#12488;&#32076;&#30001;&#12398;P2P&#25509;&#32154;&#12395;&#12362;&#12356;&#12390;&#12289;&#12475;&#12483;&#12471;&#12519;&#12531;&#35672;&#21029;&#23376;&#12420;&#36890;&#20449;&#29992;&#12398;&#25509;&#32154;&#24773;&#22577;&#12434;&#21462;&#12426;&#25201;&#12356;&#12414;&#12377;&#12290;</li>
+        <li><strong>Google Play Services / AdMob / Billing&#65306;</strong> &#12463;&#12521;&#12454;&#12489;&#12475;&#12540;&#12502;&#12289;&#23455;&#32318;&#12289;&#24195;&#21578;&#37197;&#20449;&#12362;&#12424;&#12403;&#35506;&#37329;&#20195;&#34892;&#12399;&#21508;Google&#20844;&#24335;&#12469;&#12540;&#12499;&#12473;&#12434;&#36890;&#12376;&#12390;&#23433;&#20840;&#12395;&#34892;&#12431;&#12428;&#12414;&#12377;&#12290;</li>
+      </ul>
+
+      <h2 class="section-title">2. &#31532;&#19977;&#32773;&#12469;&#12540;&#12499;&#12473;</h2>
+      <div class="table-responsive">
+        <table class="service-table">
+          <thead><tr><th>&#20107;&#26989;&#32773;</th><th>&#12469;&#12540;&#12499;&#12473;&#20869;&#23481;</th><th>&#12509;&#12522;&#12471;&#12540;</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Google Cloud Firestore</strong></td><td>&#20844;&#38283;&#12503;&#12525;&#12501;&#12451;&#12540;&#12523;&#12539;&#12525;&#12499;&#12540;&#31649;&#29702;</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Cloud &#12509;&#12522;&#12471;&#12540;</a></td></tr>
+            <tr><td><strong>Epic Online Services</strong></td><td>P2P&#12510;&#12523;&#12481;&#12503;&#12524;&#12452;&#25509;&#32154;&#12471;&#12464;&#12490;&#12522;&#12531;&#12464;</td><td><a href="https://www.epicgames.com/site/privacypolicy" target="_blank" rel="noopener">Epic Games &#12509;&#12522;&#12471;&#12540;</a></td></tr>
+            <tr><td><strong>Google Play &amp; AdMob</strong></td><td>&#12466;&#12540;&#12512;&#27231;&#33021;&#12539;&#24195;&#21578;&#37197;&#20449;&#12539;&#27770;&#28168;&#20195;&#34892;</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google &#12503;&#12521;&#12452;&#12496;&#12471;&#12540;&#12509;&#12522;&#12471;&#12540;</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title">3. &#12481;&#12515;&#12483;&#12488;&#12398;&#23433;&#20840;&#24615;&#12392;&#12502;&#12525;&#12483;&#12463;&#27231;&#33021;</h2>
+      <p>&#12481;&#12515;&#12483;&#12488;&#12395;&#12399;&#33258;&#21205;&#19981;&#36969;&#20999;&#35486;&#21477;&#12501;&#12451;&#12523;&#12479;&#12540;&#12364;&#23455;&#35013;&#12373;&#12428;&#12390;&#12362;&#12426;&#12289;&#24453;&#27231;&#23460;&#12420;&#12503;&#12525;&#12501;&#12451;&#12540;&#12523;&#12363;&#12425;&#20219;&#24847;&#12398;&#12503;&#12524;&#12452;&#12516;&#12540;&#12434;&#12300;&#12502;&#12525;&#12483;&#12463;&#12301;&#12375;&#12390;&#12513;&#12483;&#12475;&#12540;&#12472;&#12434;&#21363;&#26178;&#12511;&#12517;&#12540;&#12488;&#12391;&#12365;&#12414;&#12377;&#12290;</p>
+
+      <h2 class="section-title">4. &#12487;&#12540;&#12479;&#12398;&#23433;&#20840;&#24615;&#12392;&#38750;&#36009;&#22770;&#23459;&#35328;</h2>
+      <p><strong>&#20491;&#20154;&#12487;&#12540;&#12479;&#12289;&#12481;&#12515;&#12483;&#12488;&#20869;&#23481;&#12289;&#35672;&#21029;&#23376;&#12434;&#31532;&#19977;&#32773;&#12408;&#36009;&#22770;&#12377;&#12427;&#12371;&#12392;&#12399;&#19968;&#20999;&#12354;&#12426;&#12414;&#12379;&#12435;&#12290;</strong> &#20840;&#36890;&#20449;&#12399; <strong>HTTPS / TLS</strong> &#12391;&#26263;&#21495;&#21270;&#12373;&#12428;&#12289;&#12481;&#12515;&#12483;&#12488;&#20869;&#23481;&#12399;&#19968;&#26178;&#30340;&#12394;&#36890;&#20449;&#12395;&#12398;&#12415;&#20351;&#29992;&#12373;&#12428;&#27704;&#32154;&#20445;&#23384;&#12373;&#12428;&#12414;&#12379;&#12435;&#12290;</p>
+
+      <h2 class="section-title">5. &#12362;&#21839;&#12356;&#21512;&#12431;&#12379;</h2>
+      <p>13&#27507;&#20197;&#19978;&#12398;&#19968;&#33324;&#12503;&#12524;&#12452;&#12516;&#12540;&#12434;&#23550;&#35937;&#12392;&#12375;&#12390;&#12356;&#12414;&#12377;&#12290;&#12487;&#12540;&#12479;&#21066;&#38500;&#31561;&#12398;&#35201;&#35531;&#12399;&#19979;&#35352;&#12414;&#12391;&#12372;&#36899;&#32097;&#12367;&#12384;&#12373;&#12356;&#65306;<a href="mailto:chanchibussines@gmail.com">chanchibussines@gmail.com</a>&#12290;</p>
+    </article>
+
+    <footer>
+      &copy; 2026 Chanchiwawi Studios &bull; The Last Tower: Horde Defense &bull; All Rights Reserved.
+    </footer>
+
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      const panes = document.querySelectorAll('.lang-pane');
+      const btns = document.querySelectorAll('.lang-btn');
+
+      panes.forEach(pane => pane.classList.remove('active'));
+      btns.forEach(btn => btn.setAttribute('aria-selected', 'false'));
+
+      const targetPane = document.getElementById('pane-' + lang);
+      if (targetPane) targetPane.classList.add('active');
+
+      const targetBtn = document.getElementById('btn-' + lang);
+      if (targetBtn) targetBtn.setAttribute('aria-selected', 'true');
+    }
+  </script>
+</body>
+</html>
+```
+
+---
+
+Pega este bloque actualizado en tu sitio, dale a **Publicar**, copia la URL y p&#233;gala en la casilla de la Play Console. Con esto queda 100% en regla y listo para pasar la revisi&#243;n.
+
+Apenas lo guardes en la consola de Google Play, av&#237;same y pasamos de inmediato al siguiente punto de tu lista: **"Detalles de acceso"**. Te dir&#233; exactamente qu&#233; marcar ah&#237; en un minuto.

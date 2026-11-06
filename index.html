@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chanchiwawis Games</title>
+  <meta name="description" content="Sitio oficial de Chanchiwawis Games. Desarrollador independiente de The Last Tower y The Transmuter.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-header: #080c14;
+      --surface: #111827;
+      --surface-border: #1e283d;
+      --surface-border-light: #28354f;
+      --text: #e2e8f0;
+      --text-muted: #8e9bb0;
+      --gold: #f59e0b;
+      --gold-hover: #fbbf24;
+      --cyan: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: url('assets/bg_pattern.png');
+      background-repeat: repeat;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(8, 12, 20, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+    }
+
+    .brand-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* LANG SWITCHER */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: #151d2f;
+      border: 1px solid var(--surface-border);
+      border-radius: 6px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* HERO FULL-WIDTH */
+    .hero-wrapper {
+      width: 100%;
+      position: relative;
+      background-color: var(--bg);
+      overflow: hidden;
+      border-bottom: 1px solid var(--surface-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-banner-img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center bottom;
+      display: block;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 16px;
+      width: 100%;
+      text-align: center;
+      padding: 0 20px;
+      pointer-events: none;
+    }
+
+    .hero-caption p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* GAMES */
+    .games-list {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .game-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .game-top-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .game-thumb {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      border: 1px solid var(--surface-border);
+      object-fit: cover;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .game-thumb:hover {
+      transform: scale(1.05);
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+    }
+
+    .game-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .game-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .game-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tag-3d {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(168, 85, 247, 0.18);
+      color: #c084fc;
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .status-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .status-tag.wip {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .game-info p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .game-story {
+      background: #090d16;
+      border-left: 3px solid var(--gold);
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 18px;
+    }
+
+    .game-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0b0f19;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--surface-border-light);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    /* PROMOTIONAL SCREENSHOTS GALLERY (INTERACTIVE BILINGUAL LIGHTBOX) */
+    .game-gallery {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .gallery-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .gallery-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .gallery-hint {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--surface-border);
+      background: #000;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+      box-shadow: 0 6px 18px rgba(245, 158, 11, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-item:hover img {
+      opacity: 0.9;
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.4) 65%, transparent 100%);
+      padding: 8px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      pointer-events: none;
+    }
+
+    /* LIGHTBOX MODAL */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 8, 14, 0.94);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .lightbox-img-wrap {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--surface-border-light);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-caption-bar {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 8px;
+      gap: 16px;
+    }
+
+    .lightbox-caption-text {
+      text-align: left;
+    }
+
+    .lightbox-caption-text h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .lightbox-caption-text p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .lightbox-counter {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: #151d2f;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--surface-border);
+      white-space: nowrap;
+    }
+
+    .lightbox-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid var(--surface-border-light);
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      z-index: 10;
+    }
+
+    .lightbox-btn:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+
+    .lightbox-btn-prev {
+      left: -64px;
+    }
+
+    .lightbox-btn-next {
+      right: -64px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #cbd5e1;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      transition: color 0.15s;
+    }
+
+    .lightbox-close:hover {
+      color: #fff;
+    }
+
+    /* ABOUT ME & CHANCHIWAWIS GAMES */
+    .about-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+    }
+
+    .about-text h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .about-text p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .about-divider {
+      height: 1px;
+      background: var(--surface-border);
+      margin: 16px 0;
+    }
+
+    .about-studio-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    /* CONTACT COLUMNS (Style inspired by Re-Logic) */
+    .contact-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-col {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .contact-col h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .contact-col p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .contact-col a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold);
+      word-break: break-all;
+    }
+
+    .contact-col a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 0;
+      background: var(--bg-header);
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      margin-left: 20px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .lightbox-btn-prev {
+        left: 10px;
+      }
+      .lightbox-btn-next {
+        right: 10px;
+      }
+      .lightbox-close {
+        top: -40px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .game-top-row, .about-box {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .game-thumb, .about-avatar {
+        margin: 0 auto;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-columns {
+        grid-template-columns: 1fr;
+      }
+      .nav-right nav {
+        display: none;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links a {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Chanchiwawis Games Logo">
+        <span class="brand-name">Chanchiwawis Games</span>
+      </div>
+
+      <div class="nav-right">
+        <nav>
+          <ul>
+            <li><a href="#chanchiwawis-games" data-i18n="nav_about">Chanchiwawis Games</a></li>
+            <li><a href="#juegos" data-i18n="nav_games">Juegos</a></li>
+            <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FULL-WIDTH HERO BANNER -->
+  <div class="hero-wrapper">
+    <img src="assets/full_hero_banner.png" alt="Chanchiwawis Games Banner" class="hero-banner-img">
+    <div class="hero-caption">
+      <p data-i18n="hero_desc">Desarrollo independiente de videojuegos.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- SOBRE MÍ Y CHANCHIWAWIS GAMES -->
+    <section id="chanchiwawis-games">
+      <h2 class="section-title" data-i18n="section_about">Chanchiwawis Games</h2>
+
+      <div class="about-box">
+        <img src="assets/avatar.png" alt="Nico Avatar" class="about-avatar">
+        <div class="about-text">
+          <h3 data-i18n="about_title">Nico — Desarrollador en solitario</h3>
+          <p data-i18n="about_p1">
+            Hola, soy Nico. Hago videojuegos bajo el sello de Chanchiwawis Games. No soy una gran empresa ni tengo un equipo detrás: soy yo programando, diseñando y aprendiendo en cada etapa del desarrollo. Empecé en esto por pura pasión por el medio, con el objetivo de crear títulos desafiantes y justos que a mí mismo me diviertan jugar.
+          </p>
+
+          <div class="about-divider"></div>
+
+          <div class="about-studio-title" data-i18n="studio_title">Chanchiwawis Games</div>
+          <p data-i18n="studio_desc">
+            Es el sello independiente que da vida a mis proyectos. La filosofía es clara y honesta: crear videojuegos con identidad propia, mecánicas profundas y cero sistemas abusivos. Cada lanzamiento, desde la supervivencia contra hordas en <em>The Last Tower</em> hasta la exploración gótica en <em>The Transmuter</em>, busca ofrecer diversión directa y una conexión transparente y cercana con la comunidad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUEGOS -->
+    <section id="juegos">
+      <h2 class="section-title" data-i18n="section_games">Proyectos</h2>
+
+      <div class="games-list">
+
+        <!-- THE LAST TOWER -->
+        <div class="game-box">
+          <div class="game-top-row">
+            <img src="assets/the_last_tower_icon.png" alt="The Last Tower Icon" class="game-thumb" onclick="openSingleImage('assets/the_last_tower_icon.png', 'The Last Tower: Horde Defense', 'The Last Tower: Horde Defense', 'Icono oficial del Bastión en Google Play Store', 'Official Bastion icon on Google Play Store')" title="Clic para ampliar / Click to enlarge">
+            <div class="game-info">
+              <div class="game-header">
+                <div class="game-title-group">
+                  <span class="game-name">The Last Tower: Horde Defense</span>
+                </div>
+                <span class="status-tag" data-i18n="tlt_status">Disponible en Google Play</span>
+              </div>
+              <p data-i18n="tlt_desc">
+                Un juego de supervivencia contra hordas y defensa de torres. Construye mejoras para el bastión, desbloquea personajes y resiste oleadas infinitas de enemigos.
+              </p>
+              <div class="game-story" data-i18n="tlt_story">
+                La idea nació de mi gusto por juegos como <em>Vampire Survivors</em> y <em>Brotato</em>, y por el género roguelite en general. Al ser mi primer proyecto, quise empezar con algo de este estilo que me divierte jugar.
+              </div>
+              <div class="game-links">
+                <a href="https://play.google.com/store/apps/details?id=com.chanchiwawis.thelasttower" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="btn_playstore">Google Play Store</a>
+                <a href="https://www.youtube.com/@ChanchiwawisGames" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="btn_youtube">YouTube</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROMOTIONAL GALLERY UNDER THE LAST TOWER (9 BILINGUAL GAMEPLAY ITEMS) -->
+          <div class="game-gallery">
+            <div class="gallery-header-row">
+              <div class="gallery-label" data-i18n="gallery_title">Material Oficial & Galería Interactiva</div>
+              <div class="gallery-hint" data-i18n="gallery_hint">Haz clic en cualquier imagen para ampliar</div>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+              <!-- Rendered dynamically by JavaScript to swap ES/EN images -->
+            </div>
+          </div>
+        </div>
+
+        <!-- THE TRANSMUTER (3D GAME CARD) -->
+        <div class="game-box">
+          <div class="game-top-row">
+            <img src="assets/the_transmuter_card.png" alt="The Transmuter Artwork" class="game-thumb" onclick="openSingleImage('assets/the_transmuter_card.png', 'The Transmuter', 'The Transmuter', 'Arte conceptual del Castillo de los Sellos y el Reloj Cósmico', 'Concept artwork of the Castle of Sigils and the Cosmic Clock')" title="Clic para ampliar / Click to enlarge">
+            <div class="game-info">
+              <div class="game-header">
+                <div class="game-title-group">
+                  <span class="game-name">The Transmuter</span>
+                  <span class="tag-3d" data-i18n="transmuter_tag">METROIDVANIA 3D</span>
+                </div>
+                <span class="status-tag wip" data-i18n="transmuter_status">En Desarrollo</span>
+              </div>
+              <p data-i18n="transmuter_desc">
+                Una odisea 3D jugable tanto en tercera como en primera persona, ambientada en un universo de fantasía oscura y terror cósmico medieval. El Gran Castillo de los Sellos fue erigido como un ancla sobre una singularidad dimensional devoradora de reinos. Explora catacumbas anegadas, torres vertiginosas y cumbres heladas, dominando la alquimia y desentrañando el misterio del Gran Reloj y la hora inexistente.
+              </p>
+              <div class="game-story" data-i18n="transmuter_story">
+                La inspiración viene de mi fascinación por las atmósferas oscuras y por <em>Epic Mickey</em> (Disney), uno de mis juegos favoritos de la infancia. Es un proyecto desarrollado en 3D con Godot Engine y Blender que aún está en producción activa.
+              </div>
+              <div class="game-links">
+                <a href="https://www.youtube.com/@ChanchiwawisGames" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="btn_updates">Avances en YouTube</a>
+                <a href="https://discord.gg/jdRTUF8zDM" target="_blank" rel="noopener" class="btn btn-outline">Discord</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACTO (Estilo Re-Logic) -->
+    <section id="contacto">
+      <h2 class="section-title" data-i18n="section_contact">Contacto y Enlaces</h2>
+
+      <div class="contact-columns">
+        <div class="contact-col">
+          <h4 data-i18n="contact_email_title">Correo Oficial</h4>
+          <p data-i18n="contact_email_desc">Para contacto comercial, dudas o reportes.</p>
+          <a href="mailto:chanchibussines@gmail.com">chanchibussines@gmail.com</a>
+        </div>
+
+        <div class="contact-col">
+          <h4>Discord</h4>
+          <p data-i18n="contact_discord_desc">Comunidad oficial, feedback y novedades.</p>
+          <a href="https://discord.gg/jdRTUF8zDM" target="_blank" rel="noopener">discord.gg/jdRTUF8zDM</a>
+        </div>
+
+        <div class="contact-col">
+          <h4>YouTube</h4>
+          <p data-i18n="contact_yt_desc">Trailers y notas de actualización en video.</p>
+          <a href="https://www.youtube.com/@ChanchiwawisGames" target="_blank" rel="noopener">@ChanchiwawisGames</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; 2026 Chanchiwawis Games</span>
+      <div class="footer-links">
+        <a href="privacy.html" data-i18n="footer_privacy">Políticas de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL ELEMENT -->
+  <div id="lightbox-modal" class="lightbox-modal" onclick="onLightboxBackdropClick(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()" title="Cerrar (Esc)">×</button>
+      <button id="lightbox-btn-prev" class="lightbox-btn lightbox-btn-prev" onclick="prevLightbox(event)" title="Anterior (←)">‹</button>
+      <button id="lightbox-btn-next" class="lightbox-btn lightbox-btn-next" onclick="nextLightbox(event)" title="Siguiente (→)">›</button>
+
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Vista previa oficial">
+      </div>
+
+      <div class="lightbox-caption-bar">
+        <div class="lightbox-caption-text">
+          <h4 id="lightbox-title">Título</h4>
+          <p id="lightbox-desc">Descripción</p>
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter">1 / 9</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const GALLERY_ITEMS = [
+      {
+        id: "promo_01",
+        title_es: "Defiende la Torre",
+        title_en: "Defend the Tower",
+        desc_es: "Combate en tiempo real contra hordas masivas de enemigos cósmicos.",
+        desc_en: "Real-time combat defending the central tower against massive alien hordes."
+      },
+      {
+        id: "promo_02",
+        title_es: "Titanes Colosales",
+        title_en: "Colossal Titans",
+        desc_es: "Enfrentamientos tácticos contra jefes titánicos y criaturas del Vacío.",
+        desc_en: "Tactical boss battles against colossal Void titans and elite champions."
+      },
+      {
+        id: "promo_03",
+        title_es: "Plantel de Héroes",
+        title_en: "Hero Roster",
+        desc_es: "Diversos comandantes con habilidades únicas, builds y pasivas distintas.",
+        desc_en: "Unique commanders with dedicated passives, combat styles, and synergies."
+      },
+      {
+        id: "promo_04",
+        title_es: "Mejoras y Sinergias",
+        title_en: "Upgrades & Synergies",
+        desc_es: "Más de 400 mejoras para crear combinaciones y poderes devastadores.",
+        desc_en: "Over 400 upgrades to create devastating synergies and game-breaking builds."
+      },
+      {
+        id: "promo_05",
+        title_es: "Biomas Diversos",
+        title_en: "Diverse Biomes",
+        desc_es: "Arenas hostiles con clima extremo, peligros ambientales y desafíos únicos.",
+        desc_en: "Hostile battlefields featuring extreme weather, hazards, and unique challenges."
+      },
+      {
+        id: "promo_06",
+        title_es: "Modos de Juego",
+        title_en: "Game Modes",
+        desc_es: "Múltiples desafíos: Modo Clásico, Espejo Diario, Grietas y Contrarreloj.",
+        desc_en: "Multiple challenges: Classic Mode, Daily Mirror, Rifts, and Time Trials."
+      },
+      {
+        id: "promo_07",
+        title_es: "Árbol Celestial",
+        title_en: "Celestial Skill Tree",
+        desc_es: "Progresión permanente a través de 76 nodos cósmicos interconectados.",
+        desc_en: "Permanent progression through 76 interconnected cosmic constellation nodes."
+      },
+      {
+        id: "promo_08",
+        title_es: "Forja del Bastión",
+        title_en: "Bastion Forge",
+        desc_es: "Evolución de armamento, torretas satelitales y blindaje reforzado.",
+        desc_en: "Arsenal evolution, satellite defenses, and reinforced bastion plating."
+      },
+      {
+        id: "promo_09",
+        title_es: "Tesoros Místicos",
+        title_en: "Mystic Treasures",
+        desc_es: "Cofres diarios, cartas de recompensas, fichas de prueba y esquirlas del vacío.",
+        desc_en: "Daily mystic chests, reward cards, hero trials, and void shards."
+      }
+    ];
+
+    let currentLightboxIdx = 0;
+    let currentLang = 'es';
+
+    function renderGalleryGrid() {
+      const grid = document.getElementById('gallery-grid');
+      if (!grid) return;
+      grid.innerHTML = GALLERY_ITEMS.map((item, idx) => {
+        const thumbSrc = `assets/promo/${item.id}_${currentLang}_thumb.jpg`;
+        const title = currentLang === 'en' ? item.title_en : item.title_es;
+        return `
+          <div class="gallery-item" onclick="openLightbox(${idx})">
+            <img src="${thumbSrc}" alt="${title}">
+            <div class="gallery-item-overlay">${title}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openSingleImage(src, title_es, title_en, desc_es, desc_en) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-title').textContent = currentLang === 'en' ? title_en : title_es;
+      document.getElementById('lightbox-desc').textContent = currentLang === 'en' ? desc_en : desc_es;
+      const prevBtn = document.getElementById('lightbox-btn-prev');
+      const nextBtn = document.getElementById('lightbox-btn-next');
+      const counter = document.getElementById('lightbox-counter');
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (counter) counter.style.display = 'none';
+
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openLightbox(idx) {
+      const prevBtn = document.getElementById('lightbox-btn-prev');
+      const nextBtn = document.getElementById('lightbox-btn-next');
+      const counter = document.getElementById('lightbox-counter');
+      if (prevBtn) prevBtn.style.display = 'flex';
+      if (nextBtn) nextBtn.style.display = 'flex';
+      if (counter) counter.style.display = 'block';
+      currentLightboxIdx = idx;
+      updateLightboxContent();
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function onLightboxBackdropClick(e) {
+      if (e.target.id === 'lightbox-modal') {
+        closeLightbox();
+      }
+    }
+
+    function prevLightbox(e) {
+      if (e) e.stopPropagation();
+      currentLightboxIdx = (currentLightboxIdx - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+      updateLightboxContent();
+    }
+
+    function nextLightbox(e) {
+      if (e) e.stopPropagation();
+      currentLightboxIdx = (currentLightboxIdx + 1) % GALLERY_ITEMS.length;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      const item = GALLERY_ITEMS[currentLightboxIdx];
+      const fullSrc = `assets/promo/${item.id}_${currentLang}_full.jpg`;
+      document.getElementById('lightbox-img').src = fullSrc;
+      document.getElementById('lightbox-title').textContent = currentLang === 'en' ? item.title_en : item.title_es;
+      document.getElementById('lightbox-desc').textContent = currentLang === 'en' ? item.desc_en : item.desc_es;
+      document.getElementById('lightbox-counter').textContent = `${currentLightboxIdx + 1} / ${GALLERY_ITEMS.length}`;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightbox-modal');
+      if (!modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+    });
+
+    const STRINGS = {
+      es: {
+        nav_games: "Juegos",
+        nav_about: "Chanchiwawis Games",
+        nav_contact: "Contacto",
+        hero_desc: "Desarrollo independiente de videojuegos.",
+        section_games: "Proyectos",
+        tlt_status: "Disponible en Google Play",
+        tlt_desc: "Un juego de supervivencia contra hordas y defensa de torres. Construye mejoras para el bastión, desbloquea personajes y resiste oleadas infinitas de enemigos.",
+        tlt_story: "La idea nació de mi gusto por juegos como <em>Vampire Survivors</em> y <em>Brotato</em>, y por el género roguelite en general. Al ser mi primer proyecto, quise empezar con algo de este estilo que me divierte jugar.",
+        btn_playstore: "Google Play Store",
+        btn_youtube: "YouTube",
+        gallery_title: "Material Oficial & Galería Interactiva",
+        gallery_hint: "Haz clic en cualquier imagen para ampliar",
+        transmuter_tag: "METROIDVANIA 3D",
+        transmuter_status: "En Desarrollo",
+        transmuter_desc: "Una odisea 3D jugable tanto en tercera como en primera persona, ambientada en un universo de fantasía oscura y terror cósmico medieval. El Gran Castillo de los Sellos fue erigido como un ancla sobre una singularidad dimensional devoradora de reinos. Explora catacumbas anegadas, torres vertiginosas y cumbres heladas, dominando la alquimia y desentrañando el misterio del Gran Reloj y la hora inexistente.",
+        transmuter_story: "La inspiración viene de mi fascinación por las atmósferas oscuras y por <em>Epic Mickey</em> (Disney), uno de mis juegos favoritos de la infancia. Es un proyecto desarrollado en 3D con Godot Engine y Blender que aún está en producción activa.",
+        btn_updates: "Avances en YouTube",
+        section_about: "Chanchiwawis Games",
+        about_title: "Nico — Desarrollador en solitario",
+        about_p1: "Hola, soy Nico. Hago videojuegos bajo el sello de Chanchiwawis Games. No soy una gran empresa ni tengo un equipo detrás: soy yo programando, diseñando y aprendiendo en cada etapa del desarrollo. Empecé en esto por pura pasión por el medio, con el objetivo de crear títulos desafiantes y justos que a mí mismo me diviertan jugar.",
+        studio_title: "Chanchiwawis Games",
+        studio_desc: "Es el sello independiente que da vida a mis proyectos. La filosofía es clara y honesta: crear videojuegos con identidad propia, mecánicas profundas y cero sistemas abusivos. Cada lanzamiento, desde la supervivencia contra hordas en <em>The Last Tower</em> hasta la exploración gótica en <em>The Transmuter</em>, busca ofrecer diversión directa y una conexión transparente y cercana con la comunidad.",
+        section_contact: "Contacto y Enlaces",
+        contact_email_title: "Correo Oficial",
+        contact_email_desc: "Para contacto comercial, dudas o reportes.",
+        contact_discord_desc: "Comunidad oficial, feedback y novedades.",
+        contact_yt_desc: "Trailers y notas de actualización en video.",
+        footer_privacy: "Políticas de Privacidad"
+      },
+      en: {
+        nav_games: "Games",
+        nav_about: "Chanchiwawis Games",
+        nav_contact: "Contact",
+        hero_desc: "Independent game development.",
+        section_games: "Projects",
+        tlt_status: "Available on Google Play",
+        tlt_desc: "A horde survival and tower defense game. Upgrade your bastion, unlock characters, and withstand endless waves of enemies.",
+        tlt_story: "The idea came from my love for games like <em>Vampire Survivors</em> and <em>Brotato</em>, and the roguelite genre as a whole. As my first project, I wanted to start with a genre I genuinely enjoy playing.",
+        btn_playstore: "Google Play Store",
+        btn_youtube: "YouTube",
+        gallery_title: "Official Artwork & Interactive Gallery",
+        gallery_hint: "Click any image to enlarge",
+        transmuter_tag: "3D METROIDVANIA",
+        transmuter_status: "In Development",
+        transmuter_desc: "A 3D odyssey playable in both third and first-person perspectives, set in a world of dark fantasy and medieval cosmic horror. The Great Castle of Sigils was forged as an anchor over a realm-devouring singularity. Explore flooded catacombs, vertiginous gothic towers, and frozen peaks, mastering alchemy and unraveling the mystery of the Great Clock and the non-existent hour.",
+        transmuter_story: "The inspiration comes from my fascination with dark atmospheres and <em>Epic Mickey</em> (Disney), one of my childhood favorite games. It is a 3D project being built with Godot Engine and Blender that is currently in active development.",
+        btn_updates: "Updates on YouTube",
+        section_about: "Chanchiwawis Games",
+        about_title: "Nico — Solo Developer",
+        about_p1: "Hi, I'm Nico. I make games under the independent banner of Chanchiwawis Games. I am not a big corporation or a large studio: it's just me coding, designing, and learning at every step of development. I started this out of genuine love for video games, aiming to create fair, challenging experiences that I love playing myself.",
+        studio_title: "Chanchiwawis Games",
+        studio_desc: "The indie studio identity behind all my projects. The core philosophy is straightforward and honest: crafting games with soul, deep mechanics, and zero predatory design. Every release—from the intense horde survival in <em>The Last Tower</em> to the dark alchemical exploration in <em>The Transmuter</em>—is built to deliver pure fun and open, transparent communication with players.",
+        section_contact: "Contact & Links",
+        contact_email_title: "Official Email",
+        contact_email_desc: "For business inquiries, questions, or bug reports.",
+        contact_discord_desc: "Official community, feedback, and updates.",
+        contact_yt_desc: "Trailers and video patch notes.",
+        footer_privacy: "Privacy Policy"
+      }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (STRINGS[lang] && STRINGS[lang][key]) {
+          el.innerHTML = STRINGS[lang][key];
+        }
+      });
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('preferred_lang', lang);
+      document.documentElement.lang = lang;
+      renderGalleryGrid();
+      const modal = document.getElementById('lightbox-modal');
+      if (modal && modal.classList.contains('active')) {
+        updateLightboxContent();
+      }
+    }
+
+    function detectSmartLanguage() {
+      const saved = localStorage.getItem('preferred_lang');
+      if (saved) return saved;
+      
+      const userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (userLang.startsWith('es') || userLang.startsWith('pt')) {
+        return 'es';
+      }
+      return 'en';
+    }
+
+    const initialLang = detectSmartLanguage();
+    setLang(initialLang);
+  </script>
+
+</body>
+</html>
